@@ -1,13 +1,12 @@
 import React, {Component}  from 'react';
 
-export class Container extends React.Component {
+export default class Container extends React.Component {
 
     render(){
 
         return(
-            <h1> Nanjing Shengtang Food Co. LTD.</h1>
+            <h1>Let's start from here</h1>
         );
     }
 }
 
-export default Container
