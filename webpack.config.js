@@ -10,9 +10,11 @@ module.exports = {
     // A SourceMap without column-mappings ignoring loaded Source Maps.
     devtool: 'cheap-module-source-map',
     plugins: [
-        //simplifies creation of HTML files to serve your webpack bundles. This is especially useful for webpack bundles that include a hash in the filename which changes every compilation. You can either let the plugin generate an HTML file for you, supply your own template using lodash templates or use your own loader.
+        //simplifies creation of HTML files to serve your webpack bundles.
+        // This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
+        // You can either let the plugin generate an HTML file for you, supply your own template using lodash templates or use your own loader.
         new HtmlWebpackPlugin({
-            title: 'Hot Module Replacement'
+            template: path.resolve(__dirname, './index.html'),
         }),
         //Auto replacement of page when i save some file, even css
         new webpack.HotModuleReplacementPlugin()

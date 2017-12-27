@@ -1,7 +1,7 @@
 import React, {Component}  from 'react';
 import { Layout } from 'antd';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 export default class Container extends React.Component {
 
     render(){
@@ -9,10 +9,7 @@ export default class Container extends React.Component {
             <div>
                 <Layout>
                     <Header>Header</Header>
-                    <Layout>
-                        <Content>Content</Content>
-                        <Sider>Sider</Sider>
-                    </Layout>
+                    <Content>Content</Content>
                     <Footer>Footer</Footer>
                 </Layout>
             </div>
