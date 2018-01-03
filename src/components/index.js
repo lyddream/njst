@@ -1,1 +1,3 @@
-export {default as Container} from './container';
+export {default as Home} from './Home';
+export {default as Header} from './Header';
+export {default as Footer} from './Footer';

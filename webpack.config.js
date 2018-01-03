@@ -39,12 +39,20 @@ module.exports = {
         //hotmodulereplacementeplugin
         hot: true
     },
+    resolve: {
+        extensions: ['.js', '.jsx', '.css', '.json', '.scss', '.less'],
+        modules: [
+            // places where to search for required modules
+            path.join(__dirname, './src'),
+            path.join(process.cwd(), 'node_modules'),
+            path.join(process.cwd(), './'),
+        ]
+    },
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-                include: /flexboxgrid/
+                use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.scss$/,
@@ -59,9 +67,15 @@ module.exports = {
                 use: ['file-loader']
             },
             {
-                test: /\.js|.jsx?$/,
-                exclude: /(node_modules)/,
-                loaders: ["babel-loader"]
+                test: /\.(js|jsx)$/,
+                enforce: 'pre',
+                loaders: ['eslint-loader'],
+                exclude: [/node_modules/]
+            },
+            {
+                test: /\.(js|jsx)$/,
+                loaders: ['babel-loader'],
+                exclude: [/node_modules/]
             }]
     },
 }

@@ -1,9 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Container from './src/components/container';
+import { render } from 'react-dom';
+import { syncHistoryWithStore } from 'react-router-redux';
 
+import { Root } from './src/containers';
+import { Routing, history } from './src/routing';
+import { store } from './src/redux/store';
 
-ReactDOM.render(
-    <Container/>,
-    document.getElementById('root')
-);
+const renderRoot = Root => {
+    let syncedHistory = syncHistoryWithStore(history, store);
+    render(
+        <Root
+            key={Math.random()}
+            routes={Routing}
+            history={syncedHistory}
+            store = {store}
+        />,
+        document.getElementById('root')
+    );
+};
+
+renderRoot(Root);
