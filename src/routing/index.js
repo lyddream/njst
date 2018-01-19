@@ -7,8 +7,8 @@ import createBrowserHistory from 'history/createBrowserHistory'
 export const history = createBrowserHistory();
 
 export const Routing =
-    <Route path="" component={App}>
+    <App>
         <Route path="/" component={Home}/>
         <Redirect from="/*" to="/"/>
-    </Route>
+    </App>
 
